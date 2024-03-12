@@ -75,6 +75,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'wassitshop.wsgi.application'
+AUTH_USER_MODEL='accounts.Account'
 
 
 # Database
@@ -129,7 +130,31 @@ STATICFILES_DIRS = [
 MEDIA_URL='/images/'
 MEDIA_ROOT=os.path.join(BASE_DIR ,'images')
 
+
+
+
+
+
+
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.ERROR : "danger",
+    
+}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#ACCOUNT_ACTIVATION_DAYS = 3
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=465
+EMAIL_USE_SSL=True
+EMAIL_HOST_USER='moh722576@gmail.com'
+EMAIL_HOST_PASSWORD='ubvdxqwjkgbhfvam '
+
+
+
+

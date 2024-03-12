@@ -38,27 +38,12 @@ class MyAccountManager(BaseUserManager):
         return user
     
 
-
-
-
-
-
-
-
-
-
 class Account(AbstractBaseUser):
     first_name=models.CharField(max_length=100)
     last_name=models.CharField(max_length=100)
-    username=models.CharField(max_length=50)
+    username=models.CharField(max_length=50,unique=True)
     email=models.EmailField(max_length=100,unique=True)
     phone_number=models.CharField(max_length=50)
-
-
-
-
-
-
     date_joined=models.DateTimeField( auto_now_add=True)
     last_login=models.DateTimeField( auto_now_add=True)
     is_admin=models.BooleanField(default=False)
@@ -72,7 +57,7 @@ class Account(AbstractBaseUser):
     USERNAME_FIELD='email'
     REQUIRED_FIELDS=['username','first_name','last_name']
 
-    objects=MyAccountManager()
+    object=MyAccountManager()
 
 
     def __src__(self):
